@@ -102,13 +102,13 @@ automatically and clearly measured in the image data.
 
 The Raspberry Pi Camera Module 3 was employed as the camera ($c = \SI{4.74}{\milli\metre}$), which is operated by a
 Raspberry Pi Zero W. In comparison to other low-cost cameras, such as webcams or the ESP32 CAM, the
-cameras have a high geometric resolution of 12 megapixels (4608 ×2592 pixels) and relatively large pixels of \SI{1.4}{\mu\metre} \cite{raspicamdatasheet}, which, subjectively, results in excellent image quality. Further camera
-parameters: focus is motorized from \SI{10}{\centi\metre} to $\infty$, field-of-view is $\SI{66}{\degree} \times \SI{41}{\degree}$ and the f-stop is F1.8. The number of
-cameras for the prototype was defined in conjunction with the type of frame. This was achieved by modelling the
+cameras have a high geometric resolution of 12 megapixels ($4608 \times 2592$ pixels) and relatively large pixels of \SI{1.4}{\mu\metre} \cite{raspicamdatasheet}, which, subjectively, results in excellent image quality. Further camera
+parameters: focus is motorized from \SI{10}{\centi\metre} to $\infty$, field-of-view is $\SI{66}{\degree} \times \SI{41}{\degree}$ and the f-stop is F1.8. The number of cameras for the prototype was defined in conjunction with the type of frame. This was achieved by modelling the
 frame setup and its cameras in 3D visualization software Blender, and rendering the individual images of the
 potential camera positions. The images were then imported into Agisoft Metashape, where a 3D model was
 calculated. This process entailed assessing the feasibility of the calculation and evaluating the extent of coverage
 afforded to the test object.
+
 In order to produce the best possible images, it is essential that the object is sufficiently and evenly illuminated.
 Individually controllable LED light strips were attached to the aluminium rods as a light source, allowing
 individual areas to be switched off, for example, in order to reduce glare. Furthermore, different light colours can
@@ -128,6 +128,7 @@ Raspberry Pi Zero W sends the images and the detected and measured ArUco markers
 which calculates the camera positions and stores the data. The desktop software then downloads the data and
 transfers it to the SfM software Agisoft Metashape, which generates a point cloud and the 3D model of the
 captured object.
+
 As test objects a small Moai figure (height \SI{14}{\centi\metre}) as illustrated in Fig. 2, an Einstein bust (height \SI{15}{\centi\metre}) and the
 test body Testy (height \SI{38}{\centi\metre}) was used, which has already been used for accuracy tests of 3D handheld
 scanners \cite{kersten_scanner}. These three test bodies were scanned using the high-precision structure light
