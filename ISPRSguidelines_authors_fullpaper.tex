@@ -1,0 +1,154 @@
+% Version 2022-09-20
+% update – 161114 by Ken Arroyo Ohori: made spacing closer to Word template throughout, put proper quotes everywhere, removed spacing that could cause labels to be wrong, added non-breaking and inter-sentence spacing where applicable, removed explicit newlines
+% update – 010819 by Dennis Wittich: made spacing and font size closer to Word template, updated references and refernces style
+% update – 042319 by Dennis Wittich: font size of captions set to 'small', first author names are shortened, hyphenation fixed
+% update – 010620 by Dennis Wittich: Footnotes alignment set to left
+% update - 151220 by Clement Mallet: Template adapted for double blind full paper submissions
+% update - 060321 by Christian Heipke: Template refined for double blind full paper submissions
+% update - 090921 by Christian Heipke: Template refined for double blind full paper submissions
+% update - 200922 by Christian Heipke: general template update
+% update - 080124 by Christian Heipke: general template update
+
+\documentclass{isprs} % isprs class modified 23-04-2019 (Dennis Wittich)
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{geometry} % added 27-02-2014 Markus Englich
+\usepackage{epstopdf}
+\usepackage[labelsep=period]{caption}  % added 14-04-2016 Markus Englich - Recommendation by Sebastian Brocks
+\usepackage[british]{babel} 
+\usepackage[hang]{footmisc}
+% FT: Einheitenpaket
+\usepackage{siunitx}
+\def\footnotemargin{1em} % added 08-01-2020 Dennis Wittich
+
+%\usepackage[authoryear]{natbib}
+%\def\bibhang{0pt}
+
+\geometry{a4paper, top=25mm, left=20mm, right=20mm, bottom=25mm, headsep=10mm, footskip=12mm} % added 27-02-2014 Markus Englich
+%\usepackage{enumitem}
+
+%\usepackage{isprs}
+%\usepackage[perpage,para,symbol*]{footmisc}
+
+%\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\captionsetup{justification=centering,font=normal} % thanks to Niclas Borlin 05-05-2016
+\captionsetup[figure]{font=small} % added 23-04-2019 Dennis Wittich
+\captionsetup[table]{font=small} % added 23-04-2019 Dennis Wittich
+
+\begin{document}
+
+\title{Development of a Photogrammetric 3D Measurement System for Small Objects using Raspberry Pi Cameras as low-cost Sensors}
+\date{}
+
+
+% KAO: Remove extra spacing
+
+% Anonymous submissions, authors' names should not be visible
+\author{Thomas P. Kersten\textsuperscript{1}, Florian Timm\textsuperscript{1}, Kay Zobel\textsuperscript{1}}
+%\author{***** (for review, names must be rendered anonymous)}
+
+% KAO: Remove extra newline
+% Anonymous submissions, authors' affiliations should not be visible
+\address{
+	\textsuperscript{1 }HafenCity University Hamburg, Photogrammetry \& Laser Scanning Lab, Hamburg, Germany - \\(thomas.kersten, florian.timm, kay.zobel)@hcu-hamburg.de\\
+}
+%\address{**** (for review, affiliations must be rendered anonymous)}
+
+% If the corresponding author is NOT the final author, always add a % space before the subsequent comma, i.e.
+% first author name\textsuperscript{a,}\thanks{Corresponding author} , % second author name \textsuperscript{b}, etc.
+% thanks to Niclas Borlin 05-05-2016
+% information on the corresponding author should not be used any longer and has been commented out
+% C. Heipke, Jan 03,2024
+
+% the use of the information of commissions and working groups should not be used any longer and has been commented out
+% C. Heipke, Sept. 20,2022
+%\commission{XX, }{YY} %This field is optional. If filled, XX and YY should be replaced by adequate numbers. See https://www2.isprs.org/commissions/
+%\workinggroup{XX/YY} %This field is optional.
+%\icwg{}   %This field is optional.
+
+
+% KAO: Use times symbol
+\abstract{
+
+	These guidelines are provided for the preparation of \textbf{full papers} submitted to ISPRS events (Congress, Geospatial Week, Symposia, smaller events such as workshops). Full papers undergo a double-blind review process. Therefore, the submissions have to be anonymised. If this process leads to acceptance, subsequently a camera-ready manuscript must be submitted following these guidelines (but, of course, incl. author names and affiliation). Depending on the recommendations of the reviewers and the decision of the local programme chair this camera-ready manuscript will be published either in the ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences or The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, provided it arrives by the due date and corresponds to the guidelines.
+	These guidelines are issued to ensure a uniform style for all submitted papers and throughout these two series. To assure timely and efficient production of the Annals and Archives with a consistent and easy to read format, authors must submit their manuscripts in strict conformance with these guidelines. The Society may omit any paper that does not conform to the specified requirements.
+}
+
+\keywords{Manuscripts, Proceedings, ISPRS Archives, ISPRS Annals, Guidelines for Authors, Style guide.}
+
+\maketitle
+
+%\saythanks % added 28-02-2014 Markus Englich
+
+\section{Manuscript}\label{MANUSCRIPT}
+
+% KAO: Sloppy spacing ensures non-overfull lines. Can be removed if this is not an issue.
+\sloppy
+The digitization of cultural objects in museums presents a dual opportunity: firstly, to preserve the objects and
+collections themselves, and secondly, to make them available to the general public as 3D models in virtual
+exhibitions on the Internet. Cultural artefacts of significance can be recorded using laser scanners, 3D handheld
+scanners or photogrammetry employing the structure-from-motion method. In order to efficiently record and
+model the considerable number of culturally significant objects, automated recording systems and automated
+evaluation processes are required.
+
+As part of a project at HafenCity University, a photogrammetric measurement system for small objects (up to \SI{40}{\centi\metre} in diameter) was developed. The system comprises 24 low-cost Raspberry Pi cameras (Fig. 1). This entailed
+an investigation into the number of cameras required, the arrangement of the cameras, the technical recording
+parameters (e.g. camera constant, distortion, etc.) and the synchronization of the cameras. Additionally, a
+procedure for calibrating the cameras was developed. The images are transferred to the analysis software
+automatically, with the generation of 3D point clouds and textured 3D models being carried out in the
+commercial software package Agisoft Metashape. The photogrammetric images are scaled using calibrated
+control points (ring coded targets and ArUco marker) and various scales in object space, which can be
+automatically and clearly measured in the image data.
+
+The Raspberry Pi Camera Module 3 was employed as the camera ($c = \SI{4.74}{\milli\metre}$), which is operated by a
+Raspberry Pi Zero W. In comparison to other low-cost cameras, such as webcams or the ESP32 CAM, the
+cameras have a high geometric resolution of 12 megapixels (4608 ×2592 pixels) and relatively large pixels of \SI{1.4}{\mu\metre} \cite{raspicamdatasheet}, which, subjectively, results in excellent image quality. Further camera
+parameters: focus is motorized from \SI{10}{\centi\metre} to $\infty$, field-of-view is $\SI{66}{\degree} \times \SI{41}{\degree}$ and the f-stop is F1.8. The number of
+cameras for the prototype was defined in conjunction with the type of frame. This was achieved by modelling the
+frame setup and its cameras in 3D visualization software Blender, and rendering the individual images of the
+potential camera positions. The images were then imported into Agisoft Metashape, where a 3D model was
+calculated. This process entailed assessing the feasibility of the calculation and evaluating the extent of coverage
+afforded to the test object.
+In order to produce the best possible images, it is essential that the object is sufficiently and evenly illuminated.
+Individually controllable LED light strips were attached to the aluminium rods as a light source, allowing
+individual areas to be switched off, for example, in order to reduce glare. Furthermore, different light colours can
+be set in order to enable status messages or to influence the lighting of the object. The system is controlled via a
+Raspberry Pi 4, which also controls the cameras. To reduce disturbing light effects from outside, a fabric cover
+was pulled over the aluminium frame (Fig. 1 left). The total cost of the materials for the system setup, including
+the power supply, was \SI{2000}{EUR}, which therefore could be defined as a low-cost photogrammetric system.
+The software for controlling the measuring system was mainly written in Python. A number of preliminary
+studies were carried out before and during the construction of the actual measurement system. These were used
+to check the feasibility of the system and to determine and optimize the necessary steps. The main focus was on
+determining the camera constants and the distortion of the cameras using OpenCV. In order to improve the depth
+of field of the images focus stacking was also investigated. After completing the design and construction of the
+prototype, various tests were carried out to check the accuracy of the system.
+The recordings with the cameras are triggered via the software button in the desktop software, the web interface
+or via a button. The exposures of the cameras are synchronized and the images are then generated. The
+Raspberry Pi Zero W sends the images and the detected and measured ArUco markers to the Raspberry Pi 4,
+which calculates the camera positions and stores the data. The desktop software then downloads the data and
+transfers it to the SfM software Agisoft Metashape, which generates a point cloud and the 3D model of the
+captured object.
+As test objects a small Moai figure (height \SI{14}{\centi\metre}) as illustrated in Fig. 2, an Einstein bust (height \SI{15}{\centi\metre}) and the
+test body Testy (height \SI{38}{\centi\metre}) was used, which has already been used for accuracy tests of 3D handheld
+scanners \cite{kersten_scanner}. These three test bodies were scanned using the high-precision structure light
+system Zeiss GOM ATOS 5 (system precision 10-30 microns) as reference.
+
+The triangulated reference data was compared with the point cloud from the low-cost measurement system using
+the CloudCompare software. The tests demonstrated that the utilization of the turntable led to markedly
+enhanced object coverage and elevated accuracy, attributable to the augmented number of images. The most
+favourable outcome of the comparison between the point cloud and the reference data was an average deviation
+of \SI{0.14}{\milli\metre} mm and a maximum deviation of \SI{1.4}{\milli\metre}, achieved through the utilization of a turntable with four
+rotations and 32 steps (Fig. 3). The results of the remaining two test bodies will be presented in the paper. The
+project demonstrated that a photogrammetric measurement system based on Raspberry Pi cameras can be
+developed as a low-cost system, and that the additional use of a turntable to capture the test object can increase
+the coverage of the object and the accuracy of the capture.
+
+	{
+		\begin{spacing}{1.17}
+			\normalsize
+			\bibliography{ISPRSguidelines_authors} % Include your own bibliography (*.bib), style is given in isprs.cls
+		\end{spacing}
+	}
+
+\end{document}
+

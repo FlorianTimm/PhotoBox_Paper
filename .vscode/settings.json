@@ -1,0 +1,67 @@
+{
+    "files.exclude": {
+        "**/*.aux": true,
+        "*.lof": true,
+        "*.log": true,
+        "*.lot": true,
+        "*.out": true,
+        "*.synctex.gz": true,
+        "*.toc": true,
+        "*.bbl": true,
+        "*.blg": true,
+        "*.dvi": true,
+        "*.fdb_latexmk": true,
+        "*.fls": true,
+        "*.out.ps": true,
+        "*.acr": true,
+        "*.acn": true,
+        "*.alg": true,
+        "*.glg": true,
+        "*.glo": true,
+        "*.gls": true,
+        "*.ist": true,
+        "*.synctex(busy)": true,
+        "svg-inkscape": true,
+        ".github": true,
+    },
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex, bibtex, pdflatex (2x)",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "--shell-escape",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+}
